@@ -1,0 +1,537 @@
+/* 文章列表页面样式 */
+.articles-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-title {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-align: center;
+    max-width: 800px;
+    margin: 1rem auto;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* 为每个副标题添加依次延迟的动画 */
+.page-subtitle:nth-child(2) {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.page-subtitle:nth-child(3) {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.page-subtitle:nth-child(4) {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 添加鼠标悬停效果 */
+.page-subtitle {
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.page-subtitle:hover {
+    background-color: rgba(0, 102, 204, 0.05);
+    transform: translateX(5px);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.article-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.article-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 118, 255, 0.1);
+    color: #0076FF;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 100px;
+    z-index: 1;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 118, 255, 0.1);
+}
+
+.article-card:hover .article-category {
+    background: #0076FF;
+    color: #fff;
+}
+
+.article-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.article-card:hover .article-title {
+    color: #0076FF;
+}
+
+.article-excerpt {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.article-meta {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.meta-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.article-date {
+    color: #888;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.article-date::before {
+    content: '📅';
+    margin-right: 0.4rem;
+    font-size: 1rem;
+}
+
+.meta-divider {
+    color: #888;
+    font-weight: 500;
+}
+
+.article-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tag {
+    background: rgba(0, 118, 255, 0.1);
+    color: #0076FF;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 118, 255, 0.1);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.tag:hover {
+    background: #0076FF;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.category-filters {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.category-filter {
+    background: rgba(0, 118, 255, 0.1);
+    color: #0076FF;
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 118, 255, 0.1);
+}
+
+.category-filter:hover,
+.category-filter.active {
+    background: #0076FF;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .articles-container {
+        padding: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+        margin: 0.8rem 1rem;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-content {
+        padding: 1.5rem;
+    }
+
+    .article-title {
+        font-size: 1.3rem;
+    }
+
+    .article-excerpt {
+        font-size: 1rem;
+    }
+
+    .category-filters {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .category-filter {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .meta-left {
+        gap: 0.5rem;
+    }
+
+    .tag {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .article-card {
+        background: #1c1c1e;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .article-title {
+        color: #fff;
+    }
+
+    .article-card:hover .article-title {
+        color: #0076FF;
+    }
+
+    .article-excerpt {
+        color: #999;
+    }
+
+    .article-date,
+    .meta-divider {
+        color: #666;
+    }
+
+    .article-category {
+        background: rgba(0, 118, 255, 0.15);
+        color: #0076FF;
+        border-color: rgba(0, 118, 255, 0.2);
+    }
+
+    .article-card:hover .article-category {
+        background: #0076FF;
+        color: #fff;
+    }
+
+    .tag {
+        background: rgba(0, 118, 255, 0.15);
+        border-color: rgba(0, 118, 255, 0.2);
+    }
+
+    .tag:hover {
+        background: #0076FF;
+        color: #fff;
+    }
+
+    .category-filter {
+        background: rgba(0, 118, 255, 0.15);
+        color: #0076FF;
+        border-color: rgba(0, 118, 255, 0.2);
+    }
+
+    .category-filter:hover,
+    .category-filter.active {
+        background: #0076FF;
+        color: #fff;
+    }
+
+    .article-meta {
+        border-top-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.donation-section {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(0, 118, 255, 0.05);
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(0, 118, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 118, 255, 0.1);
+}
+
+.donation-title {
+    font-size: 1.8rem;
+    color: #1d1d1f;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.donation-text {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wallet-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wallet-label::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230076FF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>') no-repeat center center;
+    background-size: contain;
+}
+
+.wallet-address {
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 1rem;
+    color: #0076FF;
+    border: 1px solid rgba(0, 118, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: all;
+}
+
+.wallet-address:hover {
+    background: #f0f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 118, 255, 0.15);
+}
+
+.wallet-address::after {
+    content: '点击复制';
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #666;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.wallet-address:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-0.5rem);
+}
+
+.copy-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230076FF"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>') no-repeat center center;
+    background-size: contain;
+}
+
+.wallet-address:hover .copy-icon {
+    opacity: 1;
+}
+
+.copied-message {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(1rem);
+    background: #1d1d1f;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copied-message.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copied-message::before {
+    content: '✓';
+    font-weight: bold;
+    color: #00ff00;
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .donation-section {
+        background: rgba(0, 118, 255, 0.1);
+        border-color: rgba(0, 118, 255, 0.15);
+    }
+
+    .donation-title {
+        color: #fff;
+    }
+
+    .donation-text {
+        color: #999;
+    }
+
+    .wallet-label {
+        color: #888;
+    }
+
+    .wallet-address {
+        background: #1c1c1e;
+        border-color: rgba(0, 118, 255, 0.3);
+        color: #0076FF;
+    }
+
+    .wallet-address:hover {
+        background: rgba(0, 118, 255, 0.15);
+    }
+
+    .wallet-address::after {
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .donation-section {
+        margin-top: 3rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .donation-title {
+        font-size: 1.5rem;
+    }
+
+    .donation-text {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .wallet-address {
+        font-size: 0.85rem;
+        padding: 0.8rem 1.2rem;
+        width: 100%;
+        justify-content: center;
+        word-break: break-all;
+    }
+} 

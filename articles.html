@@ -1,0 +1,56 @@
+<!--
+ * 文章列表页面
+ * 展示所有博客文章的列表视图
+ * 1. 网格布局：以卡片形式展示所有文章
+ * 2. 文章预览：每个卡片包含标题、摘要、封面图
+ * 3. 分类标签：显示文章的分类标签
+ * 4. 发布日期：显示文章发布时间
+ * 5. 点击跳转：点击卡片跳转到文章详情
+-->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章列表 - 刘春起 Ethan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="articles.css">
+</head>
+<body>
+    <!-- 页面顶部导航栏 -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">刘春起 Ethan</div>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="articles.html" class="active">文章</a></li>
+                    <li><a href="index.html#about">关于我</a></li>
+                    <li><a href="index.html#contact">联系</a></li>
+                    <li><a href="resume.html" class="resume-link">简历</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 文章列表主体内容 -->
+    <main class="articles-container">
+        <!-- 页面标题 -->
+        <h1 class="page-title">探索思考</h1>
+        <p class="page-subtitle">在这里，我将持续分享对投资、区块链、经济学和轻松人生的思考和探索。</p>
+        <p class="page-subtitle">每过三个月，我都会感觉过去的思想特别幼稚！所以，当时的文章论述并不代表现在我的观点。</p>
+        <p class="page-subtitle">我所提到的数字货币或股票，并不代表投资建议！投资有风险，请你为自己负责。</p>
+
+        <!-- 文章网格容器 -->
+        <div id="articles-grid" class="articles-grid">
+            <!-- 文章将通过 JavaScript 动态加载到这里 -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 刘春起 Ethan. 保留所有权利。</p>
+    </footer>
+
+    <script src="articles.js"></script>
+</body>
+</html>
